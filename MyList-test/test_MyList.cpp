@@ -23,4 +23,26 @@ TEST(MyList, CreateList) {
   EXPECT_EQ(kListSize, k);
 }
 
+TEST(MyList, IsCycle) {
+	CNode *P=new CNode;
+	CNode *Head=P;
+	P->val = 1;
+	for (int i = 0; i<4; i++)
+	{
+		CNode *Tmp = new CNode;
+		Tmp->val = i + 2;
+		P->next = Tmp;
+		P = P->next;
+	}
+	P->next = Head;
+	bool f = Cycle(Head);
+	EXPECT_EQ (true, f);
+}
 
+TEST(Mylist, NoCycle) {
+	int a[5] = {2,4,6,8,10};
+
+	CNode* Head = CreateList(5, a);
+	bool f = Cycle(Head);
+	EXPECT_EQ(false, f);
+}
