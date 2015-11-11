@@ -4,6 +4,21 @@
 
 using namespace std;
 
+CNode* CreateList(int count, const int* vals) {
+  if (count <= 0) return 0;
+  CNode *head = new CNode;
+  head->val = vals[0];
+  CNode *prev = head;
+  for (int i = 1; i < count; ++i) {
+    CNode *node = new CNode;
+    node->val = vals[i];
+    prev->next = node;
+    prev = node;
+  }
+  prev->next = 0;
+  return head;
+}
+
 void print(CNode *t)
 {
     CNode *T=t;

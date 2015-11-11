@@ -5,5 +5,6 @@
 
 void print(CNode *t);
 bool Cycle(CNode *t);
+CNode* CreateList(int count, const int* vals);
 
 #endif  // GTEST_MYLIST_MYLIST_H
